@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% block head%}
+<title>LOGIN HERE!</title>
+{%endblock%}
+{% block body%}
+<div class="container">
+	<h1>Welcome to TODO APP</h1>
+	<p> Login here!</p>
+	<form method="post">
+		{% csrf_token%}
+		{{form.as_p}}
+		<button type="submit">LOGIN</button>
+	</form>
+	<p>Not a registered user! Click here <a href="/accounts/register"><button>Register </button></a>
+	</p>
+</div>
+{%endblock%}		
