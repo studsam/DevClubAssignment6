@@ -22,3 +22,9 @@ class RegistrationForm(UserCreationForm):
 		if commit:
 			user.save()
 		return user
+
+class CreateTaskForm(forms.Form):
+	task_text=forms.CharField(max_length=200)
+	def clean_task_data(self):
+		data=self.cleaned_data['task_text']
+		return data
