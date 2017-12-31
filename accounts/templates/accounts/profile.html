@@ -12,6 +12,7 @@
   <ul>
     {% for task in user.task_set.all %}
      <li>{{task.task_text}} <a href='/accounts/profile/delete_task/{{task.id}}'> <button>Delete</button></a>
+      <a href='/accounts/profile/edit_task/{{task.id}}'><button>  Edit </button>  </a>
     {%endfor%}
   </ul>
   <a href="/accounts/profile/create_task">Create Task</a>
