@@ -7,6 +7,12 @@
 {%block body%}
 <div class='container'>
   <h1>Welcome {{user.first_name}} {{user.last_name}}</h1>
-  
+  <p> Here is a list of your Todos</p>
+  <ul>
+    {% for task in user.task_set.all %}
+     <li>{{task.task_text}} <a href='/accounts/profile/delete_task/{{task.id}}'> <button>Delete</button></a>
+    {%endfor%}
+  </ul>
+  <a href="/accounts/profile/create_task">Create Task</a>
 </div>     
 {% endblock %}
