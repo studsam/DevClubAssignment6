@@ -4,10 +4,11 @@ from accounts.forms import(
 	RegistrationForm,
 	EditTaskForm,
 	CreateTaskForm)
-from .models import Task 
+from .models import Task
+from django.contrib.auth.models import User 
 # Create your views here.
 def home(request):
-	return HttpResponse('Hello. Welcome to Home Page')
+	return redirect('/accounts')
 def register(request):
 
 	if request.method =='POST':
