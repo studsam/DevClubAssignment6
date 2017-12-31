@@ -1,11 +1,12 @@
 <html>
-<body>
+<body style="background-color:yellow">
+<h1 style='background-color:green;color:orange'>Create Task</h1>
 <div class='container'>
-    <h1>Create Task</h1>
+    
 	<form method='post'>
 	{% csrf_token %}
 	{{form.as_p}}
-	 <button type='submit'>Submit</button>
+	 <button type='submit' style="background-color:red;">Submit</button>
     </form>
 </div>	
 </body>
