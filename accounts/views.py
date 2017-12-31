@@ -34,3 +34,8 @@ def create_task(request):
     else:
         form=CreateTaskForm()
     return render(request,'accounts/create_task.html',{'form':form}) 
+
+def delete_task(request,task_id):
+    task=Task.objects.get(pk=task_id)
+    task.delete()
+    return redirect('/accounts/profile')
