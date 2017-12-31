@@ -1,1 +1,1 @@
-web: gunicorn sameertodoapp.wsgi --log-file -
+web: gunicorn todo.wsgi --log-file -
