@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponseRedirect,HttpResponse
-from accounts.forms import(RegistrationForm,)
+from accounts.forms import(RegistrationForm,CreateTaskForm)
+from .models import Task 
 # Create your views here.
 def home(request):
 	return HttpResponse('Hello. Welcome to Home Page')
@@ -18,3 +19,18 @@ def profile(request):
 	user=request.user
 	args={'user':user}
 	return render(request,'accounts/profile.html',args)
+
+def create_task(request):
+    user = request.user
+  
+    if request.method=='POST':
+       task=Task.objects.create(user=user)
+       form = CreateTaskForm(request.POST)
+
+       if form.is_valid():
+          task.task_text = form.cleaned_data['task_text']
+          task.save()
+          return redirect('/accounts/profile')
+    else:
+        form=CreateTaskForm()
+    return render(request,'accounts/create_task.html',{'form':form}) 
