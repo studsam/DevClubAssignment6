@@ -5,17 +5,17 @@ from accounts.forms import(
 	EditTaskForm,
 	CreateTaskForm)
 from .models import Task
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
 # Create your views here.
 def home(request):
-	return redirect('/accounts')
+	return redirect('/accounts/login')
 def register(request):
 
 	if request.method =='POST':
 		form=RegistrationForm(request.POST)
 		if form.is_valid():
 			form.save()
-			return redirect('/accounts')
+			return redirect('/accounts/login')
 	else:
 	    form= RegistrationForm()
 	return render(request, 'accounts/reg_forms.html', {'form':form})
